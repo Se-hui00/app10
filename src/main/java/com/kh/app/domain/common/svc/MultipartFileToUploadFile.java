@@ -65,7 +65,6 @@ public class MultipartFileToUploadFile {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
-
   }
 
   public List<UploadFile> convert(List<MultipartFile> mfs,AttachFileType attachFileType) {
@@ -83,7 +82,7 @@ public class MultipartFileToUploadFile {
     StringBuffer storeFileName = new StringBuffer();
     storeFileName.append(UUID.randomUUID().toString()) // xxx-yyy-zzz-ttt..
         .append(".")
-        .append(extractExt(originalFile)); // xxx-yyy-zzz-ttt..
+        .append(extractExt(originalFile)); // png, jpg
     return storeFileName.toString();
   }
 
