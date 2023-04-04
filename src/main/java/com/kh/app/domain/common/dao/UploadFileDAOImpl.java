@@ -21,6 +21,10 @@ public class UploadFileDAOImpl implements UploadFileDAO{
 
   private final NamedParameterJdbcTemplate template;
 
+  //  public UploadFileDAOImpl(NamedParameterJdbcTemplate template) {
+//    this.template = template;
+//  }
+
   //업로드파일 등록-단건
   @Override
   public Long addFile(UploadFile uploadFile) {
