@@ -72,12 +72,12 @@ public class MemberDAOImpl implements MemberDAO{
   public void update(Long memberId, Member member) {
     StringBuffer sql = new StringBuffer();
     sql.append("update member ");
-    sql.append("   set nickname = ?, ");
-    sql.append("       gender = ?, ");
-    sql.append("       hobby = ?, ");
-    sql.append("       region = ? ");
-    sql.append(" where member_id = ? ");
-    sql.append(" where email = ? ");
+    sql.append("   set nickname = :nickname, ");
+    sql.append("       gender = :gender, ");
+    sql.append("       hobby = :hobby, ");
+    sql.append("       region = :region ");
+    sql.append(" where member_id = :member_id ");
+    sql.append(" where email = :email ");
 
     SqlParameterSource param = new MapSqlParameterSource()
         .addValue("nickname",member.getNickname())
@@ -237,9 +237,9 @@ public class MemberDAOImpl implements MemberDAO{
     StringBuffer sql = new StringBuffer();
     sql.append("select email ");
     sql.append("  from member ");
-    sql.append(" where nickname = :nackname ");
+    sql.append(" where nickname = :nickname ");
 
-    Map<String, String> param = Map.of("nackname", nickname);
+    Map<String, String> param = Map.of("nickname", nickname);
     List<String> result = template.query(
         sql.toString(),
         param,
